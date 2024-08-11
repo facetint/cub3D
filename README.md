@@ -1,3 +1,5 @@
-# cub3d ![image](https://github.com/user-attachments/assets/d345742b-dbee-4333-9514-5fcce46b1378)
+<div align="center">
+  
+![image](https://github.com/user-attachments/assets/d6de7959-5f74-43c7-bde1-e8de25f6fbef)
 
-
+</div>
