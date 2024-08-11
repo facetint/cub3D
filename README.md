@@ -29,10 +29,10 @@ This distinctions because is made because in general, ray-casting is faster than
 
 | Ray-Casting | Ray-Tracing |
 |---|---|
-|Principle:|rays are cast and traced in groups based on some geometric constraints. For instance: on a 320x200 display resolution, a ray-caster traces only 320 rays (the number 320 comes from the fact that the display has 320 horizontal pixel resolution, hence 320 vertical column). |
-|`echo`| Displays a line of text<br>Optional flag `-n`: do not output the trailing newline|
-|`env` | Displays the environment variables|
-|`exit`| exits the shell with the status in the argument or the current status if none is specified .<br>also needs a numeric argument for the status otherwise it will error |
-|`export`|  with an argument it needs a valid identifier followed by an optional = and value. <br> creates or changes the value of an existing environment variable. <br> if no argument is provided it will print the environment variables in a weird format.|
-|`pwd`| Shows the current directory as an absolute path.|
-|`unset`|with a valid identifier as argument it unsets/deletes the environment variable. <br>otherwise it shows an error.|
+|Principle: rays are cast and traced in groups based on some geometric constraints. For instance: on a 320x200 display resolution, a ray-caster traces only 320 rays (the number 320 comes from the fact that the display has 320 horizontal pixel resolution, hence 320 vertical column).|Principle: each ray is traced separately, so that every point (usually a pixel) on the display is traced by one ray. For instance: on a 320x200 display resolution, a ray-tracer needs to trace 320x200 (64,000) rays. (That is roughly 200 times slower than ray-casting.) |
+|Formula: in most cases, inexact.| 	Formula: in most cases, exact.|
+|Speed: very fast compared to ray-tracing; suitable for real time process. | Speed: slow; unsuitable for real time process (at least not until we got a 500Ghz machine).|
+|Quality: resulting image is not very realistic. Often, they are blocky| Quality: resulting image is very realistic - sometimes too realistic |
+|World: limited by one or more geometric constraints (simple geometric shapes).|  World: almost any shape can be rendered.|
+|Storage: small. Rendered images are not stored on disk. Normally, only the map is stored, and corresponding images are generated "on the fly.| Storage: Rendered images are stored on disk and loaded when needed. Presently, no hardware is fast enough for "on the fly" rendering.|
+|Examples: Wolfenstein 3D (iD Software), Shadow Caster (Raven), Arena (Bethesda), Doom (iD Software), Dark Forces (LucasArts).|Examples: Examples: 7th Guest (Trilobyte), Critical Path (Mechadeus), 11th Hour (Trilobyte), Myst (Cyan), Cyberia (Xatrix).|
