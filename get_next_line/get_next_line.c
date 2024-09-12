@@ -6,12 +6,13 @@
 /*   By: facetint <facetint@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 10:50:22 by facetint          #+#    #+#             */
-/*   Updated: 2024/09/12 15:48:26 by facetint         ###   ########.fr       */
+/*   Updated: 2024/09/12 15:57:31 by facetint         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-#include <unistd.h> 
+#include <unistd.h>
+#include "../safe_alloc/allocator.h"
 
 static char	*ft_copy(char *rem, char *buf)
 {
