@@ -5,6 +5,10 @@
 </div>
 
 ## Table of Contents
+- [Introduction](#introduction)
+- [A BRIEF HISTORY](#a-brief-history)
+- [WHAT IS RAY-CASTING?](#what-is-ray-casting?)
+  - [Ray-Casting Ray-Tracing](#Ray-Casting-Ray-Tracing)
 
 ## Introduction
 
