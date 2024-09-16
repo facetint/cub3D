@@ -6,7 +6,7 @@
 /*   By: facetint <facetint@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/30 20:13:01 by facetint          #+#    #+#             */
-/*   Updated: 2024/09/16 12:03:09 by facetint         ###   ########.fr       */
+/*   Updated: 2024/09/16 13:03:07 by facetint         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,12 @@ t_player	*get_player(void)
 
 void	free_all(t_player *player)
 {
+	if (!player->mlx.mlx)
+		return ;
+	if (player->mlx.win)
+		mlx_destroy_window(player->mlx.mlx, player->mlx.win);
+	if (player->frame.img)
+		mlx_destroy_image(player->mlx.mlx, player->frame.img);
 	if (player->map.texture.east.img)
 		mlx_destroy_image(player->mlx.mlx, player->map.texture.east.img);
 	if (player->map.texture.north.img)
@@ -34,7 +40,6 @@ void	free_all(t_player *player)
 		mlx_destroy_image(player->mlx.mlx, player->map.texture.west.img);
 	free_memory();
 }
-
 void	handle_abort(void)
 {
 	free_all(get_player());
