@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: facetint <facetint@student.42.fr>          +#+  +:+       +#+        */
+/*   By: zeatilga <zeatilga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/16 11:55:00 by facetint          #+#    #+#             */
-/*   Updated: 2024/09/16 11:55:01 by facetint         ###   ########.fr       */
+/*   Created: 2024/08/04 18:32:06 by facetint          #+#    #+#             */
+/*   Updated: 2024/08/11 15:58:02 by zeatilga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define MAP_H
 
 # include "vector.h"
+# include "map.h"
+# include "config.h"
 
 typedef enum e_map_element
 {
@@ -53,7 +55,18 @@ typedef struct s_map
 	t_texture_data	texture;
 }	t_map;
 
-int				is_in_bounds(t_map map, t_coord coord);
-t_map_element	get_map_element(t_map map, t_coord coord);
+void			get_metadata(int fd, void *arg);
+void			get_metadata_value(char *value);
+void			get_map_size(int fd, void *arg);
+void			get_map_data(int fd, void *arg);
+void			validate_extension(char *str);
+void			read_file(char *filename, void *arg,
+					int file_line, void func(int, void *));
+int				str2rgb(char *str);
+int				is_a_map_line(char *line);
+
+void			safe_exit(void);
+void			handle_abort(void);
+void			error_exit(const char *msg);
 
 #endif
