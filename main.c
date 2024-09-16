@@ -6,17 +6,14 @@
 /*   By: facetint <facetint@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 12:00:04 by facetint          #+#    #+#             */
-/*   Updated: 2024/09/16 12:00:05 by facetint         ###   ########.fr       */
+/*   Updated: 2024/09/16 13:21:38 by facetint         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/controllers.h"
-#include "includes/config.h"
-#include "includes/render.h"
-#include "includes/parser.h"
-#include "minilibx/mlx.h"
-#include "includes/graceful_exit.h"
-#include <stdlib.h>
+#include "../includes/defines.h"
+#include "../minilibx/mlx.h"
+#include "../includes/render.h"
+#include <stdio.h>
 
 int	close_window(void)
 {
