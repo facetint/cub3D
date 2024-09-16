@@ -6,7 +6,7 @@
 /*   By: facetint <facetint@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 12:00:04 by facetint          #+#    #+#             */
-/*   Updated: 2024/09/16 13:21:38 by facetint         ###   ########.fr       */
+/*   Updated: 2024/09/16 13:23:12 by facetint         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,9 @@ int	game_loop(t_player *player)
 		player->position.x = move_x(player, -player->camera.dir.x);
 		player->position.y = move_y(player, -player->camera.dir.y);
 	}
-	else if (player->keys->right_arrow)
+	if (player->keys->right_arrow)
 		rotate_player(player, 1);
-	else if (player->keys->left_arrow)
+	if (player->keys->left_arrow)
 		rotate_player(player, -1);
 	return (render_map(*player));
 }
@@ -77,23 +77,25 @@ void	set_player_camera(t_player *player)
 int	main(int ac, char **av)
 {
 	t_mlx			mlx;
-	t_map			map;
-	t_pressed_keys	pressed_keys;
-	t_player		player;
+	t_player		*player;
 
+	player = get_player();
 	if (ac != 2)
-		return (error_exit(USAGE_MSG), 1);
-	map = load_map(&mlx, av[1]);
-	mlx.win = mlx_new_window(mlx.mlx, SCREEN_WIDTH, SCREEN_HEIGHT, WINDOW_NAME);
-	pressed_keys = (t_pressed_keys){0};
-	player.keys = &pressed_keys;
-	player.position = map.spawn_point;
-	player.mlx = mlx;
-	player.map = map;
-	set_player_camera(&player);
-	mlx_hook(mlx.win, 2, 0, on_key_press, &player);
-	mlx_hook(mlx.win, 3, 0, on_key_release, &player);
-	mlx_loop_hook(mlx.mlx, game_loop, &player);
-	mlx_hook(mlx.win, 17, 0, close_window, 0);
-	mlx_loop(mlx.mlx);
+		return (error_exit(WRONG_ARGS), 1);
+	player->map = create_map(&mlx, av[1]);
+	player->mlx = mlx;
+	player->mlx.win = mlx_new_window(player->mlx.mlx,
+			SCREEN_WIDTH, SCREEN_HEIGHT, "cub3d by facetint&zeatilga");
+	if (!player->mlx.win)
+		error_exit("failed to open window\n");
+	player->keys = &(t_pressed_keys){0};
+	player->position = player->map.spawn_point;
+	set_player_camera(get_player());
+	printf("Player position: %f, %f\n", player->position.x, player->position.y);
+	player->frame = create_img(player->mlx, SCREEN_HEIGHT, SCREEN_WIDTH);
+	mlx_hook(player->mlx.win, 2, 0, key_press, player);
+	mlx_hook(player->mlx.win, 3, 0, key_release, player);
+	mlx_loop_hook(player->mlx.mlx, game_loop, player);
+	mlx_hook(player->mlx.win, 17, 0, close_window, 0);
+	mlx_loop(player->mlx.mlx);
 }
