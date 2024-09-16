@@ -6,7 +6,7 @@
 /*   By: facetint <facetint@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/30 20:14:53 by facetint          #+#    #+#             */
-/*   Updated: 2024/09/16 13:10:29 by facetint         ###   ########.fr       */
+/*   Updated: 2024/09/16 13:12:02 by facetint         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,8 @@ t_map	create_map(t_mlx *mlx, char *filename)
 	if (is_spawn_point_not_set(map))
 		error_exit(NO_SPAWN_POINT);
 	mlx->mlx = mlx_init();
+	if (!mlx->mlx)
+		error_exit("mlx init error\n");
 	map.texture = get_textures(mlx->mlx, meta);
 	return (map);
 }
