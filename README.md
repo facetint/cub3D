@@ -2,6 +2,7 @@
   
 ![image](https://github.com/user-attachments/assets/d6de7959-5f74-43c7-bde1-e8de25f6fbef)
 
+
 </div>
 
 ## Table of Contents
@@ -9,6 +10,7 @@
   - [A BRIEF HISTORY](#a-brief-history)
   - [WHAT IS RAY-CASTING?](#what-is-ray-casting?)
     - [Ray-Casting Ray-Tracing](#Ray-Casting-Ray-Tracing)
+- [Installation](#installation)
 
 ## Introduction
 
@@ -40,3 +42,16 @@ This distinctions because is made because in general, ray-casting is faster than
 |World: limited by one or more geometric constraints (simple geometric shapes).|  World: almost any shape can be rendered.|
 |Storage: small. Rendered images are not stored on disk. Normally, only the map is stored, and corresponding images are generated "on the fly.| Storage: Rendered images are stored on disk and loaded when needed. Presently, no hardware is fast enough for "on the fly" rendering.|
 |Examples: Wolfenstein 3D (iD Software), Shadow Caster (Raven), Arena (Bethesda), Doom (iD Software), Dark Forces (LucasArts).|Examples: Examples: 7th Guest (Trilobyte), Critical Path (Mechadeus), 11th Hour (Trilobyte), Myst (Cyan), Cyberia (Xatrix).|
+
+
+
+
+
+
+## Installation
+
+1. Clone the repository: `git clone https://github.com/facetint/cub3D.git`
+2. run `cd cub3D`
+3. run `make`
+4. run the executable: `./cub3D map.cub`
+
