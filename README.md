@@ -1,10 +1,8 @@
 <div align="center">
   
-![image](https://github.com/user-attachments/assets/d6de7959-5f74-43c7-bde1-e8de25f6fbef)
+<!-- ![image](https://github.com/user-attachments/assets/d6de7959-5f74-43c7-bde1-e8de25f6fbef) -->
 
-
-![Uploading Ekran Resmi 2024-09-19 ÖS 4.14.33.png…]()
-
+<img width="1280" alt="Ekran Resmi 2024-09-19 ÖS 4 14 33" src="https://github.com/user-attachments/assets/6e1571d4-a4d0-4451-80a6-830c3593cab1">
 
 </div>
 
