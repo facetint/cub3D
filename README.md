@@ -2,6 +2,7 @@
 
 This project is inspired by the world famous game Wolfenstein 3D, the first FPS game has been created. It will allow you to explore ray-casting. Your goal is a dynamic perspective to find your way through a maze. to create it.
 
+
 <div align="center">
   
 <!-- ![image](https://github.com/user-attachments/assets/d6de7959-5f74-43c7-bde1-e8de25f6fbef) -->
