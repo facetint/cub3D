@@ -6,7 +6,7 @@
 /*   By: facetint <facetint@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/30 20:17:56 by facetint          #+#    #+#             */
-/*   Updated: 2024/09/16 20:12:31 by facetint         ###   ########.fr       */
+/*   Updated: 2024/09/19 14:22:13 by facetint         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,12 @@ t_image	create_img(t_mlx mlx, int height, int width)
 	t_image	img;
 
 	img.img = mlx_new_image(mlx.mlx, width, height);
+	if (!img.img)
+		error_exit("failed to create image file (address)\n");
 	img.addr = mlx_get_data_addr(img.img,
 			&img.bits_per_pixel, &img.line_length, &img.endian);
+	if (!img.addr)
+		error_exit("Invalid image file (address)\n");
 	img.height = height;
 	img.width = width;
 	return (img);
